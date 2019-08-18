@@ -1,5 +1,5 @@
-import addItemToCart from '../cart';
-import cartItem from '../cartItem';
+import addItemToCart from '../src/cart';
+import cartItem from '../src/cartItem';
 
 test('adding an item to an empty cart makes the cart length equal to 1', () => {
   // Setup
