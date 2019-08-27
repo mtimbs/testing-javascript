@@ -83,3 +83,25 @@ test('Async code will hit end of test before resolving and mark as pass because 
     expect(true).toBe(false)
   }, 100)
 });
+
+test('we can increment the second item in the cart', () => {
+  const itemOne: Item = {
+    name: 'Some really good item',
+    sku: 'SKU_FOO_BAR_BAZ_123',
+    price: 2999,
+  };
+
+  const itemTwo: Item = {
+    name: 'Item 2',
+    sku: 'WIP',
+    price: 1999,
+  };
+
+  const cart: Cart = [cartItem(itemOne, 1), cartItem(itemTwo, 2)];
+
+  // Act
+  addItemToCart(itemTwo, cart);
+
+  // Assert
+  expect(cart[1].quantity).toBe(3);
+});
